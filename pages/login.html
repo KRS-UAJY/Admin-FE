@@ -1,0 +1,46 @@
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<!-- LOGIN -->
+<section id="login-content" class="login-content">
+    <div class="awe-parallax bg-login-content"></div>
+    <div class="awe-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <!-- FORM -->
+            <div class="col-xs-12 col-lg-4 pull-right">
+                <div class="form-login">
+                    <form name="form" ng-submit="form.$valid && SebuahLogin.login()" novalidate>
+                        <h2 class="text-uppercase">SIGN IN</h2>
+                        <div class="form-email" ng-class="{ 'has-error': form.$submitted && form.username.$invalid }">
+                            <input type="text" placeholder="NPM" name="username" class="form-control" ng-model="SebuahLogin.username" required="">
+                            <div ng-messages="form.$submitted && form.username.$error" class="help-block">
+                                <!-- <div ng-message="required">NPM is required</div> -->
+                        </div>
+                        <div class="form-password" ng-class="{ 'has-error': form.$submitted && form.password.$invalid }">
+                            <input type="password" placeholder="Password" name="password" class="form-control" ng-model="SebuahLogin.password" required="">
+                            <div ng-messages="form.$submitted && form.password.$error" class="help-block">
+                                <!-- <div ng-message="required">Password is required</div> -->
+                        </div>
+                        <div class="form-submit-1">
+                            <button id="" class="mc-btn btn-style-1" ng-disabled="SebuahLogin.loading">Sign In</button>
+                            <img ng-if="SebuahLogin.loading" src="images/76.gif" />
+                        </div>
+                        <div ng-if="SebuahLogin.error" class="alert alert-danger">{{SebuahLogin.error}}</div>
+                    </form>
+                </div>
+            </div>
+           
+            <!-- END / FORM -->
+
+            <div class="image">
+                <img src="images/homeslider/img-thumb.png" alt="">
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- END / LOGIN -->
+<div ng-include="'pages/components/footer.html'"></div>
+    <!-- END / FOOTER -->
