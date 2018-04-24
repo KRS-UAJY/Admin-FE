@@ -15,8 +15,8 @@
 	    // route for the about page
 	    .when('/tables', {
 	        templateUrl: 'pages/tables.html',
-	        controller: 'TablesController',
-	        controllerAs: 'tables'
+	        // controller: 'TablesController',
+	        // controllerAs: 'tables'
 		})
 		.when('/jadwal-ujian', {
 			templateUrl: 'pages/jadwal-ujian.html',
@@ -28,7 +28,12 @@
 			templateUrl: 'pages/admin-login.html',
 		})
 		.when('/dashboard', {
-			templateUrl: 'pages/dashboard.html',
+			templateUrl: 'pages/dashboard-setkrs.html',
+		})
+		.when('/display-krs', {
+			templateUrl: 'pages/display-krs.html',
+			controller: 'TablesController',
+	        controllerAs: 'tables'
 		})
 		.when('/dashboard2', {
 			templateUrl: 'pages/dashboard2.html'
