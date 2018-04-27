@@ -12,7 +12,12 @@
 			controllerAs: 'SebuahLogin'
 	    })
 
-	    // route for the about page
+		// route for the about page
+		.when('/display-krs', {
+			templateUrl: 'pages/display-krs.html',
+			controller: 'TablesController',
+	        controllerAs: 'tables'
+		})
 	    .when('/tables', {
 	        templateUrl: 'pages/tables.html',
 	        // controller: 'TablesController',
@@ -29,11 +34,6 @@
 		})
 		.when('/dashboard', {
 			templateUrl: 'pages/dashboard-setkrs.html',
-		})
-		.when('/display-krs', {
-			templateUrl: 'pages/display-krs.html',
-			controller: 'TablesController',
-	        controllerAs: 'tables'
 		})
 		.when('/dashboard2', {
 			templateUrl: 'pages/dashboard2.html'

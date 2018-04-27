@@ -71,16 +71,16 @@ angular.module('scotchApp')
     vm.dtColumns = [
         
         
-        DTColumnBuilder.newColumn('kelas.kode_mk').withTitle('KODE'),
-        DTColumnBuilder.newColumn('kelas.nama_mk').withTitle('MK'),
+        DTColumnBuilder.newColumn('kelas.no').withTitle('No'),
+        DTColumnBuilder.newColumn('kelas.kode_mk').withTitle('Kode MK'),
+        DTColumnBuilder.newColumn('kelas.nama_mk').withTitle('Mata Kuliah'),
         DTColumnBuilder.newColumn('kelas.kelas').withTitle('Kelas'),
-        DTColumnBuilder.newColumn('kelas.dosen1.nama_dosen').withTitle('Dosen'),
-        DTColumnBuilder.newColumn('kelas.sks').withTitle('SKS'),
-        DTColumnBuilder.newColumn('kelas').withTitle('Kuota')
+        DTColumnBuilder.newColumn('kelas.sisa').withTitle('Sisa'),
+        DTColumnBuilder.newColumn('kelas').withTitle('Tawar')
         .renderWith(function(kelas, type, full, meta) {
             return '<label id="'+kelas.id_kelas+'">'+kelas.kapasitas_kelas+'</label>';
         }),
-        DTColumnBuilder.newColumn('kelas.id_kelas').withTitle('Pilih').notSortable()
+        DTColumnBuilder.newColumn('kelas.id_kelas').withTitle('Update Tawar').notSortable()
             .renderWith(function(data, type, full, meta) {
                 vm.selected[full.id] = false;
                 return '<label class="switch"><input id="P'+data+'" type="checkbox" ng-model="tables.selected[' + data + ']" ng-click="tables.toggleOne(' + data + ')"><span class="slider round"></span></label>';

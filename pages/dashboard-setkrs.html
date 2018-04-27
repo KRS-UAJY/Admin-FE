@@ -10,13 +10,13 @@
 
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#/dashboard" data-toggle="collapse"><i class="fa fa-calendar-alt i-menu"></i>  Set Tanggal KRS</a>
+                <a class="menu-sidebar" href="#/dashboard" data-toggle="collapse"><i class="fa fa-calendar-alt i-menu"></i>  Set Tanggal KRS</a>
             </li>
             <li>
-                <a href="#/display-krs"><i class="fa fa-list i-menu"></i>  Display KRS</a>
+                <a class="menu-sidebar" href="#/display-krs"><i class="fa fa-list i-menu"></i>  Display KRS</a>
             </li>
             <li>
-                <a href="#/home"><i class="fa fa-sign-out-alt i-menu"></i>  Log Out</a>
+                <a class="menu-sidebar" href="#/home"><i class="fa fa-sign-out-alt i-menu"></i>  Log Out</a>
             </li>
         </ul>
     </nav>
@@ -93,6 +93,10 @@
                             <option>Teknik Nuklir</option>
                     </select>  
                 </div>
+                <div class="form-group">
+                    <label for="login-attempt" class="font-mode-uajy">Login Attempt : </label>
+                    <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
+                </div>
         </div>
             <div class="line"></div>  
             
@@ -111,7 +115,7 @@
                 </span>
             </div>
         </div> -->
-        <div class="line"></div>
+        <button class="btn btn-info col-md-12">Submit</button>
 
     </div>
 </div>
@@ -183,6 +187,15 @@
    bindDatePicker();
  });
 </script> -->
+<script>
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }    
+</script>
+
 <script>
   $(function() {
   // 初始化并显示清除与关闭按钮

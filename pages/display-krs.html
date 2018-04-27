@@ -1,5 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/style-admin.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
 </head>
 <div class="wrapper">
     <!-- Sidebar Holder -->
@@ -10,13 +12,13 @@
 
         <ul class="list-unstyled components">
             <li>
-                <a href="#/dashboard" data-toggle="collapse"><i class="fa fa-calendar-alt i-menu"></i>  Set Tanggal KRS</a>
+                <a class="menu-sidebar" href="#/dashboard" data-toggle="collapse"><i class="fa fa-calendar-alt i-menu"></i>  Set Tanggal KRS</a>
             </li>
             <li class="active">
-                <a><i class="fa fa-list i-menu"></i>  Display KRS</a>
+                <a class="menu-sidebar"><i class="fa fa-list i-menu"></i>  Display KRS</a>
             </li>
             <li>
-                <a href="#/home"><i class="fa fa-sign-out-alt i-menu"></i>  Log Out</a>
+                <a class="menu-sidebar" href="#/home"><i class="fa fa-sign-out-alt i-menu"></i>  Log Out</a>
             </li>
         </ul>
     </nav>
@@ -41,13 +43,20 @@
             </div>
         </nav>
         
-        <div class="col-md-12 box-form form-group">    
-            <h2 class="font-mode-uajy">SET TANGGAL KRS</h2>
+        <div class="col-md-12 box-form form-group table-handler">    
             
-            <p class="font-mode-uajy">Atur tanggal pengisian KRS dan tahun angkatan disini, pastikan semua field input terisi dengan benar sebelum di submit untuk menghindari hal yang tidak diinginkan. </p>
-            <table datatable="" dt-options="tables.dtOptions" dt-columns="tables.dtColumns" class="row-border hover table-shadow paksa-font"></table>
+                <table data-pagination="true" data-show-fullscreen="true" data-show-export="true" data-search="true" data-toggle="table" data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1" data-sort-name="stargazers_count" data-sort-order="desc"> 
+                    <thead> 
+                        <tr> 
+                        <th data-field="name" data-sortable="true"> Name </th> 
+                        <th data-field="stargazers_count" data-sortable="true"> Stars </th> 
+                        <th data-field="forks_count" data-sortable="true"> Forks </th> 
+                        <th data-field="description" data-sortable="true"> Description </th> 
+                        </tr>
+                    </thead>
+                </table>
 
-    </div>
+        </div>
 </div>
 
 
@@ -69,104 +78,5 @@
      });
  </script>
 
-<!-- <script>
-   $(function () {
-   var bindDatePicker = function() {
-		$(".date").datetimepicker({
-        format:'YYYY-MM-DD',
-			icons: {
-				time: "fa fa-clock-o",
-				date: "fa fa-calendar",
-				up: "fa fa-arrow-up",
-				down: "fa fa-arrow-down"
-			}
-		}).find('input:first').on("blur",function () {
-			// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
-			// update the format if it's yyyy-mm-dd
-			var date = parseDate($(this).val());
-
-			if (! isValidDate(date)) {
-				//create date based on momentjs (we have that)
-				date = moment().format('YYYY-MM-DD');
-			}
-
-			$(this).val(date);
-		});
-	}
-   
-   var isValidDate = function(value, format) {
-		format = format || false;
-		// lets parse the date to the best of our knowledge
-		if (format) {
-			value = parseDate(value);
-		}
-
-		var timestamp = Date.parse(value);
-
-		return isNaN(timestamp) == true;
-   }
-   
-   var parseDate = function(value) {
-		var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-		if (m)
-			value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
-
-		return value;
-   }
-   
-   bindDatePicker();
- });
-</script> -->
-<script>
-  $(function() {
-  // 初始化并显示清除与关闭按钮
-  $('#datetimepicker1').datetimepicker({
-    showClear:true,
-    showClose:true
-  });
-  $('#datetimepicker2').datetimepicker({
-    showClear:true,
-    showClose:true
-  });
-  // 设置初始时间为00:00:00和23:59:59
-  $("#datetimepicker1").click(function(){
-    $('#datetimepicker1 input').val(moment().format('YYYY/MM/DD 00:00:00'))
-  })
-  $("#datetimepicker2").click(function(){
-    $('#datetimepicker2 input').val(moment().format('YYYY/MM/DD 23:59:59'))
-  })
-});
-</script>
-<script type="text/javascript">
-    $('.form_datetime').datetimepicker({
-        //language:  'fr',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        forceParse: 0,
-        showMeridian: 1
-    });
-    $('.form_date').datetimepicker({
-        language:  'fr',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        minView: 2,
-        forceParse: 0
-    });
-    $('.form_time').datetimepicker({
-        language:  'fr',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 1,
-        minView: 0,
-        maxView: 1,
-        forceParse: 0
-    });
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
