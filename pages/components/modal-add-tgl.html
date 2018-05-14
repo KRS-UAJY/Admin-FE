@@ -1,0 +1,165 @@
+<!-- Trigger Open The Modal -->
+<button class="tooltip-hover" title="Add Tanggal KRS" id="add-tgl"><i class="fa fa-plus fa-lg"></i></button>
+
+<!-- The Modal -->
+<div id="popup-add-tgl" class="modal">
+    <!-- Modal Content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Tambah Tanggal KRS</h2>
+        </div>
+        <div class="modal-body-tawar-kls col-md-12">
+            <div>
+                <div class="form-group">
+                  <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                  </div>
+                </div>
+        </div>
+        <div>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              </div>
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="tahun-angkatan" class="font-mode-uajy">Tahun Angkatan (Dari) : </label>
+                  <select class="form-control input-lg" id="tahun-angkatan" placeholder="Tahun Angkatan (Dari)">
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                  </select>
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="tahun-angkatan-end" class="font-mode-uajy">Tahun Angkatan (Sampai) : </label>
+                <select class="form-control input-lg" id="tahun-angkatan-end">
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                </select> 
+            </div> 
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="prodi" class="font-mode-uajy">Program Studi : </label>
+                <select class="form-control input-lg" id="prodi">
+                        <option>Teknik Informatika</option>
+                        <option>Teknik Industri</option>
+                        <option>Teknik Sipil</option>
+                        <option>Teknik Nuklir</option>
+                </select>  
+            </div>
+            <div class="form-group">
+                <label for="login-attempt" class="font-mode-uajy">Login Attempt : </label>
+                <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
+            </div>
+    </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('popup-add-tgl');
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("add-tgl");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
+    <script>
+      $(document).ready(function(){
+          $('.tooltip-hover').tooltip({trigger: "hover", placement: "right"}); 
+          // $('.tooltip-jadwal-ujian').tooltip({title: "Jadwal Ujian", trigger: "hover"});
+      });  
+      </script>
+
+<script>
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }    
+</script>
+
+<script>
+$(function() {
+// 初始化并显示清除与关闭按钮
+$('#datetimepicker1').datetimepicker({
+showClear:true,
+showClose:true
+});
+$('#datetimepicker2').datetimepicker({
+showClear:true,
+showClose:true
+});
+// 设置初始时间为00:00:00和23:59:59
+$("#datetimepicker1").click(function(){
+$('#datetimepicker1 input').val(moment().format('YYYY/MM/DD 00:00:00'))
+})
+$("#datetimepicker2").click(function(){
+$('#datetimepicker2 input').val(moment().format('YYYY/MM/DD 23:59:59'))
+})
+});
+</script>
+<script type="text/javascript">
+$('.form_datetime').datetimepicker({
+    //language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+    showMeridian: 1
+});
+$('.form_date').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+});
+$('.form_time').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+});
+</script>

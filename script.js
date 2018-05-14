@@ -33,7 +33,7 @@
 			templateUrl: 'pages/admin-login.html',
 		})
 		.when('/dashboard', {
-			templateUrl: 'pages/dashboard-setkrs.html',
+			templateUrl: 'pages/display-krs.html',
 		})
 		.when('/dashboard2', {
 			templateUrl: 'pages/dashboard2.html'

@@ -273,7 +273,7 @@ a.article, a.article:hover {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 101; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 20px; 
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -364,4 +364,8 @@ a.article, a.article:hover {
 
   .btn-center {
       margin-left: 50%;
+  }
+
+  .awal-modal {
+      margin-top: 15px;
   }

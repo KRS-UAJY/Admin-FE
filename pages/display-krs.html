@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/style-admin.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-datatable.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
 </head>
 <div class="wrapper">
@@ -11,9 +11,9 @@
         </div>
 
         <ul class="list-unstyled components">
-            <li>
+            <!-- <li>
                 <a class="menu-sidebar" href="#/dashboard" data-toggle="collapse"><i class="fa fa-calendar-alt i-menu"></i>  Set Tanggal KRS</a>
-            </li>
+            </li> -->
             <li class="active">
                 <a class="menu-sidebar"><i class="fa fa-list i-menu"></i>  Display KRS</a>
             </li>
@@ -40,11 +40,16 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <h3 class="user-name">Welcome, Andrew</h3>
                 </div>
-                <div ng-include="'pages/components/modal-tawar-kls.html'"></div>
+                <!-- <div ng-include="'pages/components/modal-tawar-kls.html'"></div> -->
+                <!-- <div ng-include="'pages/components/modal-add-tgl.html'"></div> -->
+                
             </div>
         </nav>
         
-        <div class="col-md-12 box-form form-group table-handler">    
+        <div class="col-md-12 box-form form-group table-handler">
+                <button class="tooltip-hover btn btn-info" data-toggle="modal" data-target="#popup-mk-dipilih" title="Cek MK Terpilih" id="mk-dipilih">Tambah Penawaran Kelas<i class="fa fa-clipboard-check fa-lg"></i></button>    
+                <button class="tooltip-hover btn btn-success" data-toggle="modal" data-target="#popup-add-tgl" title="Add Tanggal KRS" id="add-tgl">Tambah Tanggal KRS <i class="fa fa-plus fa-lg"></i></button>
+                <button class="tooltip-hover btn btn-warning" data-toggle="modal" data-target="#popup-edit-tgl" title="Edit Tanggal KRS" id="edit-tgl">Edit Tanggal KRS <i class="fa fa-pencil fa-lg"></i></button>
             
                 <table data-pagination="true" data-show-fullscreen="true" data-show-export="true" data-search="true" data-toggle="table" data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1" data-sort-name="stargazers_count" data-sort-order="desc"> 
                     <thead> 
@@ -61,9 +66,183 @@
         
 </div>
 
+<!-- The Modal Add Tanggal -->
+<div id="popup-add-tgl" class="modal">
+    <!-- Modal Content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Tambah Tanggal KRS</h2>
+        </div>
+        <div class="modal-body-tawar-kls col-md-12">
+            <div>
+                <div class="form-group awal-modal">
+                  <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                  </div>
+                </div>
+        </div>
+        <div>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              </div>
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="tahun-angkatan" class="font-mode-uajy">Tahun Angkatan (Dari) : </label>
+                  <select class="form-control input-lg" id="tahun-angkatan" placeholder="Tahun Angkatan (Dari)">
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                  </select>
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="tahun-angkatan-end" class="font-mode-uajy">Tahun Angkatan (Sampai) : </label>
+                <select class="form-control input-lg" id="tahun-angkatan-end">
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                </select> 
+            </div> 
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="prodi" class="font-mode-uajy">Program Studi : </label>
+                <select class="form-control input-lg" id="prodi">
+                        <option>Teknik Informatika</option>
+                        <option>Teknik Industri</option>
+                        <option>Teknik Sipil</option>
+                        <option>Teknik Nuklir</option>
+                </select>  
+            </div>
+            <div class="form-group">
+                <label for="login-attempt" class="font-mode-uajy">Login Attempt : </label>
+                <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
+            </div>
+    </div>
+        </div>
+    </div>
+</div>
 
+<!-- Modal Penawaran Kelas -->
+<div id="popup-mk-dipilih" class="modal">
 
+        <!-- Modal content -->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>Tambah Penawaran Kelas</h2>
+              </div>
+              <div class="modal-body-tawar-kls col-md-12">
+                      <div class="col-md-12 modal-body-tawar-kls form-group">
+                              <div class="col-md-5">
+                                  <h3>Kode MK : </h3>
+                              </div>
+                              <div class="col-md-7">
+                                  <h3>ARS6206</h3>
+                              </div>
+                      </div>
+                      <div class="col-md-12 modal-body-tawar-kls form-group">
+                              <div class="col-md-5">
+                                  <h3>Nama MK : </h3>
+                              </div>
+                              <div class="col-md-7">
+                                  <h3>Studio Arsitektur 2</h3>
+                              </div>
+                      </div>
+                      <div class="col-md-12 modal-body-tawar-kls form-group">
+                              <div class="col-md-5">
+                                  <h3>Kapasitas Tawar : </h3>
+                              </div>
+                              <div class="col-md-7">
+                                      <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
+                              </div>
+                      </div>
+                      <div class="col-md-12 modal-body-tawar-kls form-group">
+                              <div class="col-md-6 row">
+                                  <button class="btn btn-danger btn-md btn-center">Batal</button>
+                              </div>
+                              <div class="col-md-6 row">
+                                  <button class="btn btn-success btn-md btn-center">Simpan</button>
+                              </div>
+                      </div>
+              </div>
+          </div>
+      </div>
 
+      <!-- Modal Edit Tanggal -->
+<div id="popup-edit-tgl" class="modal">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Edit Tanggal KRS</h2>
+            </div>
+            <div class="modal-body-tawar-kls col-md-12">
+                <div>
+                    <div class="form-group awal-modal">
+                      <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                      </div>
+                    </div>
+            </div>
+            <div>
+                <div class="form-group">
+                  <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                  </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="tahun-angkatan" class="font-mode-uajy">Tahun Angkatan (Dari) : </label>
+                      <select class="form-control input-lg" id="tahun-angkatan" placeholder="Tahun Angkatan (Dari)">
+                          <option>2014</option>
+                          <option>2015</option>
+                          <option>2016</option>
+                          <option>2017</option>
+                      </select>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="tahun-angkatan-end" class="font-mode-uajy">Tahun Angkatan (Sampai) : </label>
+                    <select class="form-control input-lg" id="tahun-angkatan-end">
+                            <option>2014</option>
+                            <option>2015</option>
+                            <option>2016</option>
+                            <option>2017</option>
+                    </select> 
+                </div> 
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="prodi" class="font-mode-uajy">Program Studi : </label>
+                    <select class="form-control input-lg" id="prodi">
+                            <option>Teknik Informatika</option>
+                            <option>Teknik Industri</option>
+                            <option>Teknik Sipil</option>
+                            <option>Teknik Nuklir</option>
+                    </select>  
+                </div>
+                <div class="form-group">
+                    <label for="login-attempt" class="font-mode-uajy">Login Attempt : </label>
+                    <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
+                </div>
+        </div>
+            </div>
+        </div>
+    </div>
 
 <!-- jQuery CDN -->
  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -82,3 +261,74 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
+
+<script>
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }    
+</script>
+
+<script>
+$(function() {
+// 初始化并显示清除与关闭按钮
+$('#datetimepicker1').datetimepicker({
+showClear:true,
+showClose:true
+});
+$('#datetimepicker2').datetimepicker({
+showClear:true,
+showClose:true
+});
+// 设置初始时间为00:00:00和23:59:59
+$("#datetimepicker1").click(function(){
+$('#datetimepicker1 input').val(moment().format('YYYY/MM/DD 00:00:00'))
+})
+$("#datetimepicker2").click(function(){
+$('#datetimepicker2 input').val(moment().format('YYYY/MM/DD 23:59:59'))
+})
+});
+</script>
+<script type="text/javascript">
+$('.form_datetime').datetimepicker({
+    //language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+    showMeridian: 1
+});
+$('.form_date').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+});
+$('.form_time').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+});
+</script>
+
+<script>
+        $(document).on('hidden.bs.modal', function (e) {
+            var target = $(e.target);
+            target.removeData('bs.modal')
+            .find(".modal-body").html('');
+        });
+        </script>
