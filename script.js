@@ -1,4 +1,5 @@
-	'use strict';
+
+'use strict';
 	// create the module and name it scotchApp
 	angular.module('scotchApp', ['ngRoute', 'datatables', 'datatables.buttons', 'ngStorage' ,'ngMockE2E'])
 
@@ -35,8 +36,8 @@
 		.when('/dashboard', {
 			templateUrl: 'pages/display-krs.html',
 		})
-		.when('/dashboard2', {
-			templateUrl: 'pages/dashboard2.html'
+		.when('/penawaran', {
+			templateUrl: 'pages/dashboard-setkrs.html'
 		})
 		.when('/test', {
 			templateUrl: 'pages/test.html'
