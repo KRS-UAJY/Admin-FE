@@ -243,66 +243,70 @@
                 </div>
             </div>
         </div>
-        <script>
-            $(function() {
-            // 初始化并显示清除与关闭按钮
-            $('#datetimepicker1').datetimepicker({
-            showClear:true,
-            showClose:true
-            });
-            $('#datetimepicker2').datetimepicker({
-            showClear:true,
-            showClose:true
-            });
-            // 设置初始时间为00:00:00和23:59:59
-            $("#datetimepicker1").click(function(){
-            $('#datetimepicker1 input').val(moment().format('YYYY/MM/DD 00:00:00'))
-            })
-            $("#datetimepicker2").click(function(){
-            $('#datetimepicker2 input').val(moment().format('YYYY/MM/DD 23:59:59'))
-            })
-            });
-            </script>
-            <script type="text/javascript">
-            $('.form_datetime').datetimepicker({
-                //language:  'fr',
-                weekStart: 1,
-                todayBtn:  1,
-                autoclose: 1,
-                todayHighlight: 1,
-                startView: 2,
-                forceParse: 0,
-                showMeridian: 1
-            });
-            $('.form_date').datetimepicker({
-                language:  'fr',
-                weekStart: 1,
-                todayBtn:  1,
-                autoclose: 1,
-                todayHighlight: 1,
-                startView: 2,
-                minView: 2,
-                forceParse: 0
-            });
-            $('.form_time').datetimepicker({
-                language:  'fr',
-                weekStart: 1,
-                todayBtn:  1,
-                autoclose: 1,
-                todayHighlight: 1,
-                startView: 1,
-                minView: 0,
-                maxView: 1,
-                forceParse: 0
-            });
-            </script>
+        
             
     <!-- jQuery CDN -->
      <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
      <!-- Bootstrap Js CDN -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <script src="vendor/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment-with-locales.min.js" ></script>
+    <script type="text/javascript" src="vendor/datetimepicker/bootstrap-datetimepicker.js"></script>
+     <!-- <script src="vendor/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script> -->
     
+     <script>
+        $(function() {
+        // 初始化并显示清除与关闭按钮
+        $('#datetimepicker1').datetimepicker({
+        showClear:true,
+        showClose:true
+        });
+        $('#datetimepicker2').datetimepicker({
+        showClear:true,
+        showClose:true
+        });
+        // 设置初始时间为00:00:00和23:59:59
+        $("#datetimepicker1").click(function(){
+        $('#datetimepicker1 input').val(moment().format('YYYY/MM/DD 00:00:00'))
+        })
+        $("#datetimepicker2").click(function(){
+        $('#datetimepicker2 input').val(moment().format('YYYY/MM/DD 23:59:59'))
+        })
+        });
+        </script>
+        <script type="text/javascript">
+        $('.form_datetime').datetimepicker({
+            //language:  'fr',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+        $('.form_date').datetimepicker({
+            language:  'fr',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+        $('.form_time').datetimepicker({
+            language:  'fr',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        </script>
+
      <script type="text/javascript">
          $(document).ready(function () {
              $('#sidebarCollapse').on('click', function () {

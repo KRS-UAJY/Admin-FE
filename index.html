@@ -56,6 +56,7 @@
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
     <script src="js/angular-datatables/dist/angular-datatables.js"></script>
@@ -113,7 +114,11 @@
         <div ng-view></div>
 
     </div>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment-with-locales.min.js" ></script>
+    <script type="text/javascript" src="vendor/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <!-- <script type="text/javascript" src="vendor/datetimepicker/bootstrap-datetimepicker.fr.js"></script>
+    <script src="vendor/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script> -->
+    <!-- <script>
         $(function() {
         // 初始化并显示清除与关闭按钮
         $('#datetimepicker1').datetimepicker({
@@ -126,10 +131,10 @@
         });
         // 设置初始时间为00:00:00和23:59:59
         $("#datetimepicker1").click(function(){
-        $('#datetimepicker1 input').val(moment().format('YYYY/MM/DD 00:00:00'))
+        $('#datetimepicker1 input').val(moment().format(''))
         })
         $("#datetimepicker2").click(function(){
-        $('#datetimepicker2 input').val(moment().format('YYYY/MM/DD 23:59:59'))
+        $('#datetimepicker2 input').val(moment().format(''))
         })
         });
         </script>
@@ -166,9 +171,9 @@
             forceParse: 0
         });
         </script>
-         <script src="vendor/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+         
 
-    
+     -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/library/jquery.owl.carousel.js"></script>
     <script type="text/javascript" src="js/library/jquery.appear.min.js"></script>
@@ -176,9 +181,8 @@
     <script type="text/javascript" src="js/library/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/library/scripts.js"></script>
     <script src="vendor/flipclock/setflipclock.js"></script>
-    <script type="text/javascript" src="vendor/datetimepicker/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript" src="vendor/datetimepicker/bootstrap-datetimepicker.fr.js"></script>
-    <script src="cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js" ></script>
+    
+    
 <script>
 $(document).ready(function(){
     $('.tooltip-hover').tooltip({trigger: "hover", placement: "right"}); 
