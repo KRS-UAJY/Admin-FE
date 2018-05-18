@@ -51,16 +51,11 @@
                     <button class="tooltip-hover btn btn-success" data-toggle="modal" data-target="#popup-add-tgl" title="Add Tanggal KRS" id="add-tgl">Tambah Tanggal KRS <i class="fa fa-plus fa-lg"></i></button>
                     <button class="tooltip-hover btn btn-warning" data-toggle="modal" data-target="#popup-edit-tgl" title="Edit Tanggal KRS" id="edit-tgl">Edit Tanggal KRS <i class="fa fa-pencil fa-lg"></i></button>
                 
-                    <table data-pagination="true" data-show-fullscreen="true" data-show-export="true" data-search="true" data-toggle="table" data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1" data-sort-name="stargazers_count" data-sort-order="desc"> 
-                        <thead> 
-                            <tr> 
-                            <th data-field="name" data-sortable="true"> Name </th> 
-                            <th data-field="stargazers_count" data-sortable="true"> Stars </th> 
-                            <th data-field="forks_count" data-sortable="true"> Forks </th> 
-                            <th data-field="description" data-sortable="true"> Description </th> 
-                            </tr>
-                        </thead>
-                    </table>
+                    <div class="col-md-11">
+                        <table datatable="" dt-options="tables.dtOptions" dt-columns="tables.dtColumns" class="row-border hover table-shadow paksa-font">
+    
+                        </table>
+                    </div>
     
             </div>
             
