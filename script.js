@@ -39,7 +39,9 @@
 	        controllerAs: 'tables'
 		})
 		.when('/penawaran', {
-			templateUrl: 'pages/dashboard-setkrs.html'
+			templateUrl: 'pages/dashboard-setkrs.html',
+			controller: 'TablesController',
+	        controllerAs: 'tables'
 		})
 		.when('/test', {
 			templateUrl: 'pages/test.html'
