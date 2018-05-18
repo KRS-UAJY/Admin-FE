@@ -369,3 +369,7 @@ a.article, a.article:hover {
   .awal-modal {
       margin-top: 15px;
   }
+
+  .ganjal-modal-bawah {
+      margin-bottom: 15px!important;
+  }
