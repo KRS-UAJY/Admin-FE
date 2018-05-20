@@ -69,5 +69,6 @@
             if (restrictedPage && !$localStorage.currentUser) {
                 $location.path('/home');
             }
-        });
+		})
+		
     })

@@ -16,7 +16,7 @@ angular.module('scotchApp')
 .controller('TablesController', function($compile, $scope, DTOptionsBuilder, DTColumnBuilder) {
     $scope.message = 'Look! I am an about page.';
     var vm = this;
-    var table = $('#tabel').DataTable();
+    // var table = $('#tabel').DataTable();
     let hubUrl = 'http://localhost:5001/kapasitas';
     let httpConnection = new signalR.HttpConnection(hubUrl);
     let hubConnection = new signalR.HubConnection(httpConnection);
