@@ -1,33 +1,26 @@
-<head>
+    <head>
         <link rel="stylesheet" type="text/css" href="css/style-admin.css">
-        <link href="css/bootstrap-datatable.min.css" rel="stylesheet"/>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.css" rel="stylesheet"/>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-        <!-- <script type="text/javascript" src="js/datatables/media/js/dataTables.jqueryui.min.js"></script> -->
-        
     </head>
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar" class="sidebar-bg">
-            <div class="sidebar-header">
-                <h3>ADMIN KRS ONLINE UAJY</h3>
-            </div>
-    
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a class="menu-sidebar" href="#/penawaran" data-toggle="collapse"><i class="fa fa-calendar-alt i-menu"></i>  Set Tanggal KRS</a>
-                </li>
-                <li>
-                    <a class="menu-sidebar" href="#/dashboard"><i class="fa fa-list i-menu"></i>  Display KRS</a>
-                </li>
-                <li>
-                    <a class="menu-sidebar" href="#/home"><i class="fa fa-sign-out-alt i-menu"></i>  Log Out</a>
-                </li>
-            </ul>
-        </nav>
-    
+                <div class="sidebar-header">
+                    <h3>ADMIN KRS ONLINE UAJY</h3>
+                </div>
+                       
+                        <ul class="list-unstyled components">
+                            <li class="active">
+                                <a class="menu-sidebar" href="#/dashboard" data-toggle="collapse"><i class="fa fa-calendar-alt i-menu"></i>  Set Tanggal KRS</a>
+                            </li>
+                            <li>
+                                <a class="menu-sidebar" href="#/penawaran"><i class="fa fa-list i-menu"></i>  Display KRS</a>
+                            </li>
+                            <li>
+                                <a class="menu-sidebar" href="#/home"><i class="fa fa-sign-out-alt i-menu"></i>  Log Out</a>
+                            </li>
+                        </ul>
+            </nav>    
         <!-- Page Content Holder -->
         <div id="content">
     
@@ -45,19 +38,15 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <h3 class="user-name">Welcome, Andrew</h3>
                     </div>
-                    <!-- <div ng-include="'pages/components/modal-tawar-kls.html'"></div> -->
-                    <!-- <div ng-include="'pages/components/modal-add-tgl.html'"></div> -->
                     
                 </div>
             </nav>
             
             <div class="col-md-12 box-form form-group table-handler">
-                    <button class="tooltip-hover btn btn-info" data-toggle="modal" data-target="#popup-mk-dipilih" title="Cek MK Terpilih" id="mk-dipilih">Tambah Penawaran Kelas<i class="fa fa-clipboard-check fa-lg"></i></button>    
                     <button class="tooltip-hover btn btn-success" data-toggle="modal" data-target="#popup-add-tgl" title="Add Tanggal KRS" id="add-tgl">Tambah Tanggal KRS <i class="fa fa-plus fa-lg"></i></button>
-                    <button class="tooltip-hover btn btn-warning" data-toggle="modal" data-target="#popup-edit-tgl" title="Edit Tanggal KRS" id="edit-tgl">Edit Tanggal KRS <i class="fa fa-pencil fa-lg"></i></button>
                 
                     <div class="col-md-11">
-                        <table datatable="" dt-options="tables.dtOptions" dt-columns="tables.dtColumns" class="row-border hover table-shadow paksa-font">
+                        <table datatable="" dt-options="jadwalcontroller.dtOptions" dt-columns="jadwalcontroller.dtColumns" class="row-border hover table-shadow paksa-font" dt-instance="jadwalcontroller.dtInstance">
     
                         </table>
                     </div>
@@ -71,248 +60,177 @@
         <!-- Modal Content -->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close">&times;</span>
+                <span class="close" onclick="closeDetail()">&times;</span>
                 <h2>Tambah Tanggal KRS</h2>
             </div>
             <div class="modal-body-tawar-kls col-md-12">
                 <div>
                     <div class="form-group awal-modal">
+                    <label for="tahun-angkatan" class="font-mode-uajy">Tanggal Mulai : </label>
                       <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                        <input id="add_tanggal_mulai" type='date' class="form-control input-lg" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                      </div>
+                    </div>
+            </div>
+            <div>
+                    <div class="form-group awal-modal">
+                    <label for="tahun-angkatan" class="font-mode-uajy">Waktu Mulai : </label>
+                      <div class='input-group date' id='datetimepicker1'>
+                        <input id="add_waktu_mulai" type='time' class="form-control input-lg" />
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                       </div>
                     </div>
             </div>
             <div>
                 <div class="form-group">
+                <label for="tahun-angkatan" class="font-mode-uajy">Tanggal Selesai : </label>
                   <div class='input-group date' id='datetimepicker2'>
-                    <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                    <input type='date' id="add_tanggal_selesai" class="form-control input-lg" />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
                 </div>
             </div>
             <div>
+                    <div class="form-group awal-modal">
+                    <label for="tahun-angkatan" class="font-mode-uajy">Waktu Selesai : </label>
+                      <div class='input-group date' id='datetimepicker1'>
+                        <input type='time' id="add_waktu_selesai" class="form-control input-lg" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                      </div>
+                    </div>
+            </div>
+            <div>
                 <div class="form-group">
-                    <label for="tahun-angkatan" class="font-mode-uajy">Tahun Angkatan (Dari) : </label>
-                      <select class="form-control input-lg" id="tahun-angkatan" placeholder="Tahun Angkatan (Dari)">
-                          <option>2014</option>
-                          <option>2015</option>
-                          <option>2016</option>
-                          <option>2017</option>
+                    <label for="tahun-angkatan" class="font-mode-uajy">Tahun Angkatan : </label>
+                      <select id="add_angkatan" class="form-control input-lg" id="tahun-angkatan" placeholder="Tahun Angkatan (Dari)">
+                          <option value="10">2010</option>
+                          <option value="11">2011</option>
+                          <option value="12">2012</option>
+                          <option value="13">2013</option>
+                          <option value="14">2014</option>
+                          <option value="15">2015</option>
+                          <option value="16">2016</option>
+                          <option value="17">2017</option>
+                          <option value="18">2018</option>
+                          <option value="19">2019</option>
                       </select>
                 </div>
             </div>
             <div>
                 <div class="form-group">
-                    <label for="tahun-angkatan-end" class="font-mode-uajy">Tahun Angkatan (Sampai) : </label>
-                    <select class="form-control input-lg" id="tahun-angkatan-end">
-                            <option>2014</option>
-                            <option>2015</option>
-                            <option>2016</option>
-                            <option>2017</option>
-                    </select> 
-                </div> 
-            </div>
-            <div>
-                <div class="form-group">
                     <label for="prodi" class="font-mode-uajy">Program Studi : </label>
-                    <select class="form-control input-lg" id="prodi">
-                            <option>Teknik Informatika</option>
-                            <option>Teknik Industri</option>
-                            <option>Teknik Sipil</option>
-                            <option>Teknik Nuklir</option>
+                    <select id="add_prodi" class="form-control input-lg" id="prodi">
+                            <option value="07">Teknik Informatika</option>
+                            <option value="06">Teknik Industri</option>
+                            <option value="02">Teknik Sipil</option>
+                            <option value="01">Teknik Arsktektur</option>
                     </select>  
                 </div>
                 <div class="form-group">
                     <label for="login-attempt" class="font-mode-uajy">Login Attempt : </label>
-                    <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
+                    <input type="number" id="add_kesempatan" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
                 </div>
                 <div class="form-group ">
-                        <button class="btn btn-success col-md-12 ganjal-modal-bawah">Submit</button>
+                        <button ng-click="jadwalcontroller.addJadwal()" class="btn btn-success col-md-12 ganjal-modal-bawah">Submit</button>
                 </div>
         </div>
             </div>
         </div>
     </div>
-    
-    <!-- Modal Penawaran Kelas -->
-    <div id="popup-mk-dipilih" class="modal">
-    
-            <!-- Modal content -->
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <span class="close">&times;</span>
-                      <h2>Tambah Penawaran Kelas</h2>
-                  </div>
-                  <div class="modal-body-tawar-kls col-md-12">
-                          <div class="col-md-12 modal-body-tawar-kls form-group">
-                                  <div class="col-md-5">
-                                      <h3>Kode MK : </h3>
-                                  </div>
-                                  <div class="col-md-7">
-                                      <h3>ARS6206</h3>
-                                  </div>
-                          </div>
-                          <div class="col-md-12 modal-body-tawar-kls form-group">
-                                  <div class="col-md-5">
-                                      <h3>Nama MK : </h3>
-                                  </div>
-                                  <div class="col-md-7">
-                                      <h3>Studio Arsitektur 2</h3>
-                                  </div>
-                          </div>
-                          <div class="col-md-12 modal-body-tawar-kls form-group">
-                                  <div class="col-md-5">
-                                      <h3>Kapasitas Tawar : </h3>
-                                  </div>
-                                  <div class="col-md-7">
-                                          <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
-                                  </div>
-                          </div>
-                          <div class="col-md-12 modal-body-tawar-kls form-group">
-                                  <div class="col-md-6 row">
-                                      <button class="btn btn-danger btn-md btn-center">Batal</button>
-                                  </div>
-                                  <div class="col-md-6 row">
-                                      <button class="btn btn-success btn-md btn-center">Simpan</button>
-                                  </div>
-                          </div>
-                  </div>
-              </div>
-          </div>
-    
-          <!-- Modal Edit Tanggal -->
+
     <div id="popup-edit-tgl" class="modal">
             <!-- Modal Content -->
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Edit Tanggal KRS</h2>
+                    <span class="close" onclick="closeDetail()">&times;</span>
+                    <h2>Ubah Tanggal KRS</h2>
                 </div>
                 <div class="modal-body-tawar-kls col-md-12">
-                    <div>
+                
+                    <input type="hidden" id="id_edit">
+                
+                <div>
                         <div class="form-group awal-modal">
+                        <label for="tahun-angkatan" class="font-mode-uajy">Tanggal Mulai : </label>
                           <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                            <input id="edit_tanggal_mulai" type='date' class="form-control input-lg" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                          </div>
+                        </div>
+                </div>
+                <div>
+                        <div class="form-group awal-modal">
+                        <label for="tahun-angkatan" class="font-mode-uajy">Waktu Mulai : </label>
+                          <div class='input-group date' id='datetimepicker1'>
+                            <input id="edit_waktu_mulai" type='time' class="form-control input-lg" />
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                           </div>
                         </div>
                 </div>
                 <div>
                     <div class="form-group">
+                    <label for="tahun-angkatan" class="font-mode-uajy">Tanggal Selesai : </label>
                       <div class='input-group date' id='datetimepicker2'>
-                        <input type='text' class="form-control input-lg" readonly placeholder="Klik untuk mengeset tanggal" />
+                        <input type='date' id="edit_tanggal_selesai" class="form-control input-lg" />
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                       </div>
                     </div>
                 </div>
                 <div>
+                        <div class="form-group awal-modal">
+                        <label for="tahun-angkatan" class="font-mode-uajy">Waktu Selesai : </label>
+                          <div class='input-group date' id='datetimepicker1'>
+                            <input type='time' id="edit_waktu_selesai" class="form-control input-lg" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                          </div>
+                        </div>
+                </div>
+                <div>
                     <div class="form-group">
-                        <label for="tahun-angkatan" class="font-mode-uajy">Tahun Angkatan (Dari) : </label>
-                          <select class="form-control input-lg" id="tahun-angkatan" placeholder="Tahun Angkatan (Dari)">
-                              <option>2014</option>
-                              <option>2015</option>
-                              <option>2016</option>
-                              <option>2017</option>
+                        <label for="tahun-angkatan" class="font-mode-uajy">Tahun Angkatan : </label>
+                          <select id="edit_angkatan" class="form-control input-lg" id="tahun-angkatan" placeholder="Tahun Angkatan (Dari)">
+                              <option value="10">2010</option>
+                              <option value="11">2011</option>
+                              <option value="12">2012</option>
+                              <option value="13">2013</option>
+                              <option value="14">2014</option>
+                              <option value="15">2015</option>
+                              <option value="16">2016</option>
+                              <option value="17">2017</option>
+                              <option value="18">2018</option>
+                              <option value="19">2019</option>
                           </select>
                     </div>
                 </div>
                 <div>
                     <div class="form-group">
-                        <label for="tahun-angkatan-end" class="font-mode-uajy">Tahun Angkatan (Sampai) : </label>
-                        <select class="form-control input-lg" id="tahun-angkatan-end">
-                                <option>2014</option>
-                                <option>2015</option>
-                                <option>2016</option>
-                                <option>2017</option>
-                        </select> 
-                    </div> 
-                </div>
-                <div>
-                    <div class="form-group">
                         <label for="prodi" class="font-mode-uajy">Program Studi : </label>
-                        <select class="form-control input-lg" id="prodi">
-                                <option>Teknik Informatika</option>
-                                <option>Teknik Industri</option>
-                                <option>Teknik Sipil</option>
-                                <option>Teknik Nuklir</option>
+                        <select id="edit_prodi" class="form-control input-lg" id="prodi">
+                                <option value="07">Teknik Informatika</option>
+                                <option value="06">Teknik Industri</option>
+                                <option value="02">Teknik Sipil</option>
+                                <option value="01">Teknik Arsktektur</option>
                         </select>  
                     </div>
                     <div class="form-group">
                         <label for="login-attempt" class="font-mode-uajy">Login Attempt : </label>
-                        <input type="number" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
+                        <input type="number" id="edit_kesempatan" class="form-control input-lg" placeholder="Hanya angka" onkeypress="return isNumberKey(event)" />
                     </div>
                     <div class="form-group ">
-                            <button class="btn btn-success col-md-12 ganjal-modal-bawah">Submit</button>
+                            <button ng-click="jadwalcontroller.editJadwal()" class="btn btn-success col-md-12 ganjal-modal-bawah">Submit</button>
                     </div>
             </div>
                 </div>
             </div>
         </div>
-        
-            
-    <!-- jQuery CDN -->
-     <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
-     
-     <!-- Bootstrap Js CDN -->
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment-with-locales.min.js" ></script>
-    <script type="text/javascript" src="vendor/datetimepicker/bootstrap-datetimepicker.js"></script>
-     <!-- <script src="vendor/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script> -->
     
-     <script>
-        $(function() {
-        // 初始化并显示清除与关闭按钮
-        $('#datetimepicker1').datetimepicker({
-        showClear:true,
-        showClose:true
-        });
-        $('#datetimepicker2').datetimepicker({
-        showClear:true,
-        showClose:true
-        });
-        // 设置初始时间为00:00:00和23:59:59
-        $("#datetimepicker1").click(function(){
-        $('#datetimepicker1 input').val(moment().format('YYYY/MM/DD 00:00:00'))
-        })
-        $("#datetimepicker2").click(function(){
-        $('#datetimepicker2 input').val(moment().format('YYYY/MM/DD 23:59:59'))
-        })
-        });
-        </script>
-        <script type="text/javascript">
-        $('.form_datetime').datetimepicker({
-            //language:  'fr',
-            weekStart: 1,
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            forceParse: 0,
-            showMeridian: 1
-        });
-        $('.form_date').datetimepicker({
-            language:  'fr',
-            weekStart: 1,
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            minView: 2,
-            forceParse: 0
-        });
-        $('.form_time').datetimepicker({
-            language:  'fr',
-            weekStart: 1,
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 1,
-            minView: 0,
-            maxView: 1,
-            forceParse: 0
-        });
-        </script>
+    
+
+             
+   
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     
 
      <script type="text/javascript">
          $(document).ready(function () {
@@ -323,9 +241,14 @@
          });
      </script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
-    
+    <script>
+        function closeDetail() {
+        
+        document.getElementById("popup-add-tgl").style.display = "none";
+        document.getElementById("popup-edit-tgl").style.display = "none";
+    }
+    </script>
+
     <script>
         function isNumberKey(evt){
             var charCode = (evt.which) ? evt.which : event.keyCode
@@ -336,11 +259,80 @@
     </script>
     
     
-    
+
     <script>
-            $(document).on('hidden.bs.modal', function (e) {
-                var target = $(e.target);
-                target.removeData('bs.modal')
-                .find(".modal-body").html('');
-            });
-            </script>
+//     function addJadwal() {
+    
+//     var tanggal_mulai=document.getElementById("add_tanggal_mulai").value;
+//     var waktu_mulai=document.getElementById("add_waktu_mulai").value;
+//     var tanggal_selesai=document.getElementById("add_tanggal_selesai").value;
+//     var waktu_selesai=document.getElementById("add_waktu_selesai").value;
+//     var angkatan=document.getElementById("add_angkatan").value;
+//     var prodi=document.getElementById("add_prodi").value;
+//     var kesempatan=document.getElementById("add_kesempatan").value;
+    
+//     var kapasitas_kelas=10; 
+//     let data = {
+//     "mulai": tanggal_mulai+" "+waktu_mulai,
+//     "selesai": tanggal_selesai+" "+waktu_selesai,
+//     "kode_angkatan": angkatan,
+//     "id_prodi": prodi,
+//     "kesempatan": kesempatan
+// }
+//     console.log(data);
+//     var store = JSON.parse(localStorage.getItem('ngStorage-currentUser'));
+//     let axiosConfig = {
+//                 headers: {
+//                     'Content-Type': 'application/json;charset=UTF-8',
+//                     "Authorization" : "Bearer "+store.token,
+//                     "Access-Control-Allow-Origin": "*",
+//                 }
+//               };
+//              axios.post('http://127.0.0.1:5010/api/schedule', data, axiosConfig)  
+//              .then((result) => {
+//              console.log("RESPONSE RECEIVED: ", result);
+//              document.getElementById("popup-add-tgl").style.display = "none";
+//              swal("Berhasil", "Jadwal Ditambah", "success");
+//              });
+             
+// };
+
+// function editJadwal() {
+    
+//     var id_jadwal=document.getElementById("id_edit").value;
+//     var tanggal_mulai=document.getElementById("edit_tanggal_mulai").value;
+//     var waktu_mulai=document.getElementById("edit_waktu_mulai").value;
+//     var tanggal_selesai=document.getElementById("edit_tanggal_selesai").value;
+//     var waktu_selesai=document.getElementById("edit_waktu_selesai").value;
+//     var angkatan=document.getElementById("edit_angkatan").value;
+//     var prodi=document.getElementById("edit_prodi").value;
+//     var kesempatan=document.getElementById("edit_kesempatan").value;
+    
+//     var kapasitas_kelas=10; 
+//     let data = {
+//     "id_jadwal": id_jadwal,
+//     "mulai": tanggal_mulai+" "+waktu_mulai,
+//     "selesai": tanggal_selesai+" "+waktu_selesai,
+//     "kode_angkatan": angkatan,
+//     "id_prodi": prodi,
+//     "kesempatan": kesempatan
+// }
+//     console.log(data);
+//     var store = JSON.parse(localStorage.getItem('ngStorage-currentUser'));
+//     let axiosConfig = {
+//                 headers: {
+//                     'Content-Type': 'application/json;charset=UTF-8',
+//                     "Authorization" : "Bearer "+store.token,
+//                     "Access-Control-Allow-Origin": "*",
+//                 }
+//               };
+//              axios.put('http://127.0.0.1:5010/api/schedule', data, axiosConfig)  
+//              .then((result) => {
+//              console.log("RESPONSE RECEIVED: ", result);
+//              document.getElementById("popup-edit-tgl").style.display = "none";
+//              swal("Berhasil", "Jadwal Diubah", "success");
+//              });
+             
+// };
+    </script>
+    

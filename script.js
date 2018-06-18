@@ -14,44 +14,36 @@
 	    })
 
 		// route for the about page
-		.when('/display-krs', {
+		// .when('/display-krs', {
+		// 	templateUrl: 'pages/display-krs.html',
+		// 	controller: 'TablesController',
+	    //     controllerAs: 'tables'
+		// })
+	    // .when('/tables', {
+	    //     templateUrl: 'pages/tables.html',
+	    //     // controller: 'TablesController',
+	    //     // controllerAs: 'tables'
+		// })
+		// .when('/jadwal-ujian', {
+		// 	templateUrl: 'pages/jadwal-ujian.html',
+		// })
+		// .when('/jadwal-kuliah', {
+		// 	templateUrl: 'pages/jadwal-kuliah.html',
+		// })
+		// .when('/admin', {
+		// 	templateUrl: 'pages/admin-login.html',
+		// })
+		.when('/penawaran', {
 			templateUrl: 'pages/display-krs.html',
-			controller: 'TablesController',
-	        controllerAs: 'tables'
-		})
-	    .when('/tables', {
-	        templateUrl: 'pages/tables.html',
-	        // controller: 'TablesController',
-	        // controllerAs: 'tables'
-		})
-		.when('/jadwal-ujian', {
-			templateUrl: 'pages/jadwal-ujian.html',
-		})
-		.when('/jadwal-kuliah', {
-			templateUrl: 'pages/jadwal-kuliah.html',
-		})
-		.when('/admin', {
-			templateUrl: 'pages/admin-login.html',
+			controller: 'KelasController',
+			controllerAs: 'kelascontroller'
 		})
 		.when('/dashboard', {
-			templateUrl: 'pages/display-krs.html',
-			controller: 'TablesController',
-	        controllerAs: 'tables'
-		})
-		.when('/penawaran', {
 			templateUrl: 'pages/dashboard-setkrs.html',
-			controller: 'TablesController',
-	        controllerAs: 'tables'
-		})
-		.when('/test', {
-			templateUrl: 'pages/test.html'
+			controller: 'JadwalController',
+	        controllerAs: 'jadwalcontroller'
 		})
 
-	    // route for the contact page
-	    // .when('/contact', {
-	    // 	templateUrl : 'pages/contact.html',
-	    // 	controller  : 'contactController'
-	    // })
 	    .otherwise({
 	        redirectTo: '/home'
 	    });

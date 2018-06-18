@@ -36,10 +36,10 @@
     <link rel="stylesheet" type="text/css" href="js/datatables/media/css/dataTables.jqueryui.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="js/datatables/media/css/dataTables.material.css">
     <link rel="stylesheet" type="text/css" href="js/datatables/media/css/dataTables.material.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="js/daatables/media/css/datTables.semanticui.css">
-    <link rel="stylesheet" type="text/css" href="js/daatables/media/css/datTables.semanticui.min.css">
-    <link rel="stylesheet" type="text/css" href="js/daatables/media/css/datTables.uikit.css">
-    <link rel="stylesheet" type="text/css" href="js/daatables/media/css/datTables.uikit.min.css">
+    <link rel="stylesheet" type="text/css" href="js/datables/media/css/datTables.semanticui.css">
+    <link rel="stylesheet" type="text/css" href="js/datables/media/css/datTables.semanticui.min.css">
+    <link rel="stylesheet" type="text/css" href="js/datables/media/css/datTables.uikit.css">
+    <link rel="stylesheet" type="text/css" href="js/datatables/media/css/datTables.uikit.min.css">
     <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script> -->
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" /> -->
 
@@ -74,7 +74,8 @@
     <script src="js/signalr-client/dist/browser/signalr-client-1.0.0-alpha2-final.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
     <script src="script.js"></script>
-    <script type="text/javascript" src="controllers/controllers.js"></script>
+    <script type="text/javascript" src="controllers/jadwal-controllers.js"></script>
+    <script type="text/javascript" src="controllers/kelas-controllers.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-mocks.js"></script>
     <script type="text/javascript" src="controllers/fake-backend.js"></script>
     <script type="text/javascript" src="controllers/login-controller.js"></script>
@@ -86,7 +87,8 @@
     <script src="vendor/flipclock/flipclock.js"></script>
     <script src="vendor/flipclock/flipclock.min.js"></script>
     <script src="vendor/flipclock/setflipclock.js"></script>
-
+    <script type="text/javascript" src="js/axios/dist/axios.js"></script>
+    <script type="text/javascript" src="js/swal.js"></script>
     <!-- COOKIE SPELL -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     
@@ -188,7 +190,6 @@
 <script>
 $(document).ready(function(){
     $('.tooltip-hover').tooltip({trigger: "hover", placement: "right"}); 
-    // $('.tooltip-jadwal-ujian').tooltip({title: "Jadwal Ujian", trigger: "hover"});
 });  
 </script>
 
